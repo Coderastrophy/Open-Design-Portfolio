@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coderastrophy — Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=85">
+</head>
+
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item"><span>●</span> GitHub / Coderastrophy</span>
+      <span class="ticker-item"><span>●</span> Open to Collaboration</span>
+      <span class="ticker-item"><span>●</span> Full-Stack Developer</span>
+      <span class="ticker-item"><span>●</span> Based in Addis Ababa · ET</span>
+      <span class="ticker-item"><span>●</span> Building for the Web</span>
+      <span class="ticker-item"><span>●</span> Open Source Contributor</span>
+      <span class="ticker-item"><span>●</span> GitHub / Coderastrophy</span>
+      <span class="ticker-item"><span>●</span> Open to Collaboration</span>
+      <span class="ticker-item"><span>●</span> Full-Stack Developer</span>
+      <span class="ticker-item"><span>●</span> Based in Addis Ababa · ET</span>
+      <span class="ticker-item"><span>●</span> Building for the Web</span>
+      <span class="ticker-item"><span>●</span> Open Source Contributor</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-mark">CA</div>
+      Coderastrophy
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#writing">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex; gap:1rem; align-items:center;">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+      <a class="nav-cta" href="https://github.com/Coderastrophy" target="_blank">GitHub →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <div class="hero-left">
+      <div class="hero-label">
+        <span>●</span> OPEN-SOURCE PORTFOLIO · Nº 01
+      </div>
+      <div class="hero-title">
+        A living archive of<br>
+        <em>experiments</em> in<br>
+        code, full-<br>
+        stack systems,<br>
+        and <em>Schizo-Philosophy</em><br>
+        episodes<span class="dot">.</span>
+      </div>
+      <div class="hero-buttons">
+        <a href="https://github.com/Coderastrophy" target="_blank" class="hero-btn primary-btn">Star on GitHub ↗</a>
+        <a href="#projects" class="hero-btn secondary-btn">View Projects ⚙</a>
+      </div>
+    </div>
+    <div class="hero-right-image">
+      <div class="hero-right-badge top-left">FIG. 01 / CA-26</div>
+      <div class="hero-right-badge bottom-left">SMA · u1tc3d</div>
+      <img src="assets/philosophy.png" alt="Hero Portrait" class="theme-img-light" style="filter:grayscale(100%); mix-blend-mode: multiply;">
+      <img src="assets/darktheme.png" alt="Hero Portrait Dark" class="theme-img-dark" style="border-radius: 4px;">
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">HTML5 <span class="marquee-sep"></span></span>
+      <span class="marquee-item">CSS3 + Bootstrap <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Vanilla JS <span class="marquee-sep"></span></span>
+      <span class="marquee-item">React.js <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Node.js <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Python <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Java <span class="marquee-sep"></span></span>
+      <span class="marquee-item">PostgreSQL <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Git + GitHub <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Vercel <span class="marquee-sep"></span></span>
+      <span class="marquee-item">HTML5 <span class="marquee-sep"></span></span>
+      <span class="marquee-item">CSS3 + Bootstrap <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Vanilla JS <span class="marquee-sep"></span></span>
+      <span class="marquee-item">React.js <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Node.js <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Python <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Java <span class="marquee-sep"></span></span>
+      <span class="marquee-item">PostgreSQL <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Git + GitHub <span class="marquee-sep"></span></span>
+      <span class="marquee-item">Vercel <span class="marquee-sep"></span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section-header" id="about">
+    <span class="section-num">I.</span>
+    <span class="section-title-label">About / Profile</span>
+    <span class="section-count">001 / 005</span>
+  </div>
+  <section class="about-grid fade-in">
+    <div class="about-col">
+      <div class="about-col-label">Background</div>
+      <p class="about-body">
+        I'm <strong>Mickey Jr</strong>, aka Coderastrophy (he/him) — a developer based in <strong>Ethiopia</strong>
+        building things for the web with curiosity, precision, and a philosophical edge.A <strong>3rd year Computer
+          Science and
+          Engineering student at Adama Science and Technology University</strong>, building a foundation around software
+        development, systems thinking, and continuous learning.
+        <br><br>
+
+        I approach everything with depth and intention — from code to film, music, football, and ideas. Rather than
+        surface-level consumption, I tend to study structure, context, and evolution: directors behind films, eras
+        behind football clubs, and ideas behind global systems. This same mindset carries into how I learn technology,
+        favoring long-form resources and conceptual understanding over shortcuts.
+
+        As a developer, I am focused on growing from fundamentals into building meaningful, well-structured systems.
+        <br><br>
+        <strong>“Coderastrophy"</strong>reflects my experimental and builder mindset in programming, while my broader
+        interests in
+        culture, philosophy, and geopolitics reflect a curiosity about how systems shape both technology and society.
+
+        Outside of academics, I share thoughts and reflections through my Telegram channel, blending perspectives on
+        tech, culture, and ideas.
+      </p>
+    </div>
+    <div class="about-col">
+      <div class="about-col-label">What I Build</div>
+      <div class="blog1-image-container" style="margin-top: 1.5rem;">
+        <img src="assets/blog1.png" alt="Portrait 2" class="philosophy-img" style="border-radius:8px;">
+      </div>
+      <br>
+      <p class="about-body">
+        <strong>Full-stack web applications across 9 repositories</strong> ranging from Amazon-style e-commerce clones
+        to crypto
+        dashboards and map-driven applications.<strong>Each project is built with a focus on real-world structure, not
+          just
+          surface-level UI copies.</strong>
+
+        Work is entirely commit-driven, reflecting iterative development, problem-solving, and continuous improvement
+        rather than rushed or artificial completion. Every repository represents a learning cycle — from architecture
+        and logic design to deployment-level thinking — with an emphasis on clarity, scalability, and functional depth
+        over noise or filler code.
+      </p>
+    </div>
+    <div class="about-col philosophy-col">
+      <div class="philosophy-text">
+        <div class="about-col-label">Philosophy</div>
+        <div class="philosophy-image-container">
+          <img src="assets/philosophy.png" alt="Portrait" class="philosophy-img theme-img-light">
+          <img src="assets/darktheme.png" alt="Portrait Dark" class="philosophy-img theme-img-dark">
+        </div>
+        <p class="about-body">
+          <strong><em>"We are not the reason for the existence of the universe, but our ability for self-awareness and
+              reflection makes us special within it."</em> -Mickey Jr</strong>
+        </p>
+        <br>
+        <p>This reflects how I see existence and human potential. The universe does not revolve around us, nor does our
+          existence require some predetermined cosmic purpose to matter. What makes us remarkable is our ability to
+          observe, question, reflect, and create meaning through awareness itself. To me, that capacity for conscious
+          thought is what gives value to our presence — not because we are the center of existence, but because we are
+          among the few known parts of it capable of understanding and interpreting it.
+
+          That perspective shapes how I approach both life and technology: with curiosity, humility, and a constant
+          drive to understand systems more deeply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <div class="section-header" id="skills">
+    <span class="section-num">II.</span>
+    <span class="section-title-label">Systems · Stacks</span>
+    <span class="section-count">002 / 005</span>
+  </div>
+  <section class="projects-grid fade-in">
+    <div class="od-project-block" style="cursor:default;">
+      <div class="od-project-canvas" style="background:#e8e4d2;">
+        <div class="card-badge">FRONTEND</div>
+        <img src="assets/frontend_logo.svg" alt="React"
+          style="object-fit:contain; padding:3rem; filter:brightness(0.2) sepia(1) hue-rotate(345deg) saturate(0.5);">
+      </div>
+      <div class="od-project-meta">
+        <div class="od-project-title">Frontend Architecture</div>
+        <p class="od-project-desc" style="margin-top:0.5rem;">HTML5, CSS3 / Bootstrap, Vanilla JavaScript, React.js</p>
+      </div>
+    </div>
+
+    <div class="od-project-block" style="cursor:default;">
+      <div class="od-project-canvas" style="background:#e8e4d2;">
+        <div class="card-badge">BACKEND</div>
+        <img src="assets/backend_logo.svg" alt="Node.js"
+          style="object-fit:contain; padding:3rem; filter:brightness(0.2) sepia(1) hue-rotate(345deg) saturate(0.5);">
+      </div>
+      <div class="od-project-meta">
+        <div class="od-project-title">Backend Services</div>
+        <p class="od-project-desc" style="margin-top:0.5rem;">Node.js / Express.js, JWT Auth, Python, Java</p>
+      </div>
+    </div>
+
+    <div class="od-project-block" style="cursor:default;">
+      <div class="od-project-canvas" style="background:#e8e4d2;">
+        <div class="card-badge">DATABASE</div>
+        <img src="assets/db_logo.svg" alt="PostgreSQL"
+          style="object-fit:contain; padding:3rem; filter:brightness(0.2) sepia(1) hue-rotate(345deg) saturate(0.5);">
+      </div>
+      <div class="od-project-meta">
+        <div class="od-project-title">Data Models</div>
+        <p class="od-project-desc" style="margin-top:0.5rem;">PostgreSQL / Prisma, MongoDB architectural structures.</p>
+      </div>
+    </div>
+
+    <div class="od-project-block" style="cursor:default;">
+      <div class="od-project-canvas" style="background:#e8e4d2;">
+        <div class="card-badge">DEVOPS</div>
+        <img src="assets/tools_logo.svg" alt="GitHub"
+          style="object-fit:contain; padding:3rem; filter:brightness(0.2) sepia(1) hue-rotate(345deg) saturate(0.5);">
+      </div>
+      <div class="od-project-meta">
+        <div class="od-project-title">Tools & Deploy</div>
+        <p class="od-project-desc" style="margin-top:0.5rem;">Git / GitHub workflows, npm, Vercel / Render cloud
+          hosting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <div class="section-header" id="projects">
+    <span class="section-num">III.</span>
+    <span class="section-title-label">Projects · Work</span>
+    <span class="section-count">003 / 005</span>
+  </div>
+  <section class="projects-grid fade-in">
+    <a class="od-project-block" href="https://github.com/Coderastrophy/Crypto-dashboard" target="_blank">
+      <div class="od-project-meta">
+        <div class="od-project-num">01</div>
+        <div class="od-project-title">Finance Dashboard <span class="arrow">→</span></div>
+        <p class="od-project-desc">A live cryptocurrency tracking dashboard with price data, market trends, and a clean
+          visual interface.</p>
+      </div>
+      <div class="od-project-canvas">
+        <div class="card-badge">CRYPTO</div>
+        <img src="assets/crypto.png" alt="Crypto Dashboard">
+      </div>
+    </a>
+
+    <a class="od-project-block" href="https://github.com/Coderastrophy/Amazon-clone" target="_blank">
+      <div class="od-project-meta">
+        <div class="od-project-num">02</div>
+        <div class="od-project-title">Amazon UI Clone <span class="arrow">→</span></div>
+        <p class="od-project-desc">A full-stack e-commerce simulation with authentic shopping cart architecture and
+          modern UI integration.</p>
+      </div>
+      <div class="od-project-canvas">
+        <div class="card-badge">COMMERCE</div>
+        <img src="assets/amazon.png" alt="Amazon Clone">
+      </div>
+    </a>
+
+    <a class="od-project-block" href="https://github.com/Coderastrophy/Maptyjsproject" target="_blank">
+      <div class="od-project-meta">
+        <div class="od-project-num">03</div>
+        <div class="od-project-title">Mapty Tracking <span class="arrow">→</span></div>
+        <p class="od-project-desc">A workout tracker that logs running and cycling sessions on an interactive map using
+          OOP principles.</p>
+      </div>
+      <div class="od-project-canvas">
+        <div class="card-badge">GEODATA</div>
+        <img src="assets/Mapty.png" alt="Mapty JS">
+      </div>
+    </a>
+
+    <a class="od-project-block" href="https://github.com/Coderastrophy/NeuraNets" target="_blank">
+      <div class="od-project-meta">
+        <div class="od-project-num">04</div>
+        <div class="od-project-title">NeuraNets <span class="arrow">→</span></div>
+        <p class="od-project-desc">Exploration into neural network fundamentals — training and visualizing networks
+          bridging code and cognition.</p>
+      </div>
+      <div class="od-project-canvas">
+        <div class="card-badge">BLOG SYSTEM</div>
+        <img src="assets/NeuraNets.png" alt="neuranets">
+      </div>
+    </a>
+  </section>
+
+  <!-- CONTRIBUTIONS -->
+  <section class="contrib-section fade-in">
+    <div class="contrib-label">Contribution Activity · GitHub · 2026</div>
+    <div class="contrib-grid" id="contrib-grid"></div>
+  </section>
+
+  <!-- ACTIVITY -->
+  <section class="activity-section fade-in">
+    <div class="activity-col">
+      <div class="activity-col-label">Recent Activity · GitHub</div>
+      <div class="activity-item">
+        <div class="activity-icon">⌥</div>
+        <div class="activity-text">
+          <div class="activity-title">Created 1 commit in 1 repository</div>
+          <div class="activity-meta">Coderastrophy · May 2026</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">◎</div>
+        <div class="activity-text">
+          <div class="activity-title">Contributed to Amazon</div>
+          <div class="activity-meta">Coderastrophy/Amazon</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">◎</div>
+        <div class="activity-text">
+          <div class="activity-title">Contributed to Crypto-dashboard</div>
+          <div class="activity-meta">Coderastrophy/Crypto-dashboa…</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">◎</div>
+        <div class="activity-text">
+          <div class="activity-title">Contributed to Maptyjsproject</div>
+          <div class="activity-meta">Coderastrophy/Maptyjsproject + 6 others</div>
+        </div>
+      </div>
+    </div>
+    <div class="activity-col">
+      <div class="activity-col-label">Activity Breakdown · 2026</div>
+      <div class="activity-item">
+        <div class="activity-icon" style="background: var(--ink); color: var(--paper);">↑</div>
+        <div class="activity-text">
+          <div class="activity-title">100% Commits</div>
+          <div class="activity-meta">All contribution activity is pure commits — focused, deliberate work</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">97</div>
+        <div class="activity-text">
+          <div class="activity-title">Total contributions this year</div>
+          <div class="activity-meta">Peaks in Dec 2025 · Mar–Apr 2026</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">⬡</div>
+        <div class="activity-text">
+          <div class="activity-title">9 repositories</div>
+          <div class="activity-meta">Active across multiple projects and stacks</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">★</div>
+        <div class="activity-text">
+          <div class="activity-title">2 stars earned</div>
+          <div class="activity-meta">ethiopia · 3 followers · 6 following</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING / BLOG -->
+  <!-- WRITING / BLOG -->
+  <section class="tea-leaves-container fade-in" id="writing">
+    <!-- Tea Leaves Header -->
+    <div class="tl-header">
+      <div class="tl-title-area">
+        <h2 class="tl-logo">Schizo Episodes & Thoughts</h2>
+        <p class="tl-subtitle">My thoughts about the Music,Cinema, Philosophy and life in general.</p>
+      </div>
+      <div class="tl-nav">
+        <span>BLOG</span><span>Episodes</span>
+      </div>
+    </div>
+
+    <div class="tl-body">
+      <!-- EPISODE 0 -->
+      <article class="tl-article">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">PHILOSOPHY</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-0.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">Self-Awareness & Existence</h1>
+          </a>
+          <p class="tl-post-snippet">"We are not the reason for the existence of the universe, but our ability for
+            self-awareness and reflection makes us special within it." - Mickey Jr</p>
+          <a href="blog/episode-0.html" class="tl-continue">CONTINUE READING <span>2 MIN READ</span></a>
+        </div>
+      </article>
+
+      <!-- EPISODE 1 -->
+      <article class="tl-article fade-in">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">PHILOSOPHY</span><span class="tl-tag">LIFE</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-1.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">Between Two Quiet Pulls</h1>
+          </a>
+          <p class="tl-post-snippet">I stand between two quiet pulls, each asking for a different kind of surrender. One
+            is the hard road, believing that somewhere ahead it will all make sense...</p>
+          <a href="blog/episode-1.html" class="tl-continue">CONTINUE READING <span>4 MIN READ</span></a>
+        </div>
+      </article>
+
+      <!-- EPISODE 2 -->
+      <article class="tl-article fade-in">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">ACADEMIA</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-2.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">Lost Momentum</h1>
+          </a>
+          <p class="tl-post-snippet">I think I have lost the interest to nerd out, compete and assert dominance and the
+            overall momentum I've had for long years...</p>
+          <a href="blog/episode-2.html" class="tl-continue">CONTINUE READING <span>3 MIN READ</span></a>
+        </div>
+      </article>
+
+      <!-- EPISODE 3 -->
+      <article class="tl-article fade-in">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">CAREER</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-3.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">The Quiet Fear</h1>
+          </a>
+          <p class="tl-post-snippet">The fear is quiet but constant. "What if I end up unemployed?" "What if I don’t
+            figure it out in time?"...</p>
+          <a href="blog/episode-3.html" class="tl-continue">CONTINUE READING <span>3 MIN READ</span></a>
+        </div>
+      </article>
+
+      <!-- EPISODE 4 -->
+      <article class="tl-article fade-in">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">HUSTLE</span><span class="tl-tag">BURNOUT</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-4.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">Reality Check Behind Unsustainable Online Hustle</h1>
+          </a>
+          <p class="tl-post-snippet">I used to make good money online sometimes more than I thought I ever would. Now
+            I’m at zero. This is the harsh reality no one talks about...</p>
+          <a href="blog/episode-4.html" class="tl-continue">CONTINUE READING <span>4 MIN READ</span></a>
+        </div>
+      </article>
+
+      <!-- EPISODE 5 -->
+      <article class="tl-article fade-in">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">WORKFLOW</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-5.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">Uncontrollable Variables</h1>
+          </a>
+          <p class="tl-post-snippet">The one time you finally get inspired to lock in and focus, and then your telecom
+            provider blesses you with the worst possible network...</p>
+          <a href="blog/episode-5.html" class="tl-continue">CONTINUE READING <span>2 MIN READ</span></a>
+        </div>
+      </article>
+
+      <!-- EPISODE 6 -->
+      <article class="tl-article fade-in">
+        <div class="tl-left-col">
+          <div class="tl-date">MAY 2026</div>
+          <div class="tl-tags"><span class="tl-tag">IDENTITY</span></div>
+        </div>
+        <div class="tl-right-col">
+          <a href="blog/episode-6.html" style="text-decoration:none;">
+            <h1 class="tl-post-title">Being Unmasked</h1>
+          </a>
+          <p class="tl-post-snippet">"Be unmasked." It’s a big phrase. The kind of thing people say when they want to
+            sound wise. But I don’t think I even qualify for it...</p>
+          <a href="blog/episode-6.html" class="tl-continue">CONTINUE READING <span>3 MIN READ</span></a>
+        </div>
+      </article>
+
+  </section>
+
+  <!-- CONTACT -->
+  <div class="section-header" id="contact">
+    <span class="section-num">IV.</span>
+    <span class="section-title-label">Contact · Connect</span>
+    <span class="section-count">004 / 005</span>
+  </div>
+  <section class="contact-section fade-in">
+    <div class="contact-left">
+      <h2 class="contact-heading">Let's build <em>something</em> together.</h2>
+      <div class="contact-links">
+        <a class="contact-link" href="https://github.com/Coderastrophy" target="_blank">
+          <span class="contact-link-name">GitHub</span>
+          <span class="contact-link-handle">@Coderastrophy ↗</span>
+        </a>
+        <a class="contact-link"
+          href="https://www.linkedin.com/in/mikias-abera-b87b71249?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank">
+          <span class="contact-link-name">LinkedIn</span>
+          <span class="contact-link-handle">@Mikias Abera ↗</span>
+        </a>
+        <a class="contact-link" href="https://x.com/JrJpassme" target="_blank">
+          <span class="contact-link-name">Twitter / X</span>
+          <span class="contact-link-handle">@Coderastrophy</span>
+        </a>
+        <a class="contact-link" href="miguelabera952@email.com">
+          <span class="contact-link-name">Email</span>
+          <span class="contact-link-handle">miguelabera952@gmail.com ↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="email-block">
+        <div class="email-label">Primary Contact</div>
+        <div class="email-addr">
+          <a class="contact-link" href="miguelabera952@gmail.com" target="_blank">
+            <span class="contact-link-name">Email</span>
+            <span class="contact-link-handle">miguelabera952@gmail.com ↗</span>
+        </div>
+      </div>
+      <div
+        style="border-top: 0.5px solid var(--border); padding-top: 1.5rem; font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; text-transform: uppercase; letter-spacing: 0.08em;">
+        Response time · 24–48 hours<br>
+        Time zone · EAT (UTC+3)<br>
+        Location · Addis Ababa, ET
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-left">Coderastrophy · Portfolio · MMXXVI · Apache-2.0</div>
+    <div class="f-right">Made on Earth · Built with care</div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/theme.js"></script>
+</body>
+
+</html>
