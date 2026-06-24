@@ -66,17 +66,6 @@ This portfolio is my personal corner of the web — part project showcase, part 
 
 ---
 
-## 📂 Featured Projects
-
-| Project | Description | Link |
-|---|---|---|
-| **Crypto Dashboard** | Live cryptocurrency tracking dashboard with price data & market trends | [Repo](https://github.com/Coderastrophy/Crypto-dashboard) |
-| **Amazon UI Clone** | Full-stack e-commerce simulation with cart architecture | [Repo](https://github.com/Coderastrophy/Amazon-clone) |
-| **Mapty Tracking** | Workout tracker logging runs/cycles on an interactive map (OOP) | [Repo](https://github.com/Coderastrophy/Maptyjsproject) |
-| **NeuraNets** | Exploration of neural network fundamentals — training & visualization | [Repo](https://github.com/Coderastrophy/NeuraNets) |
-
----
-
 ## 🏗️ Running Locally
 
 ```bash
