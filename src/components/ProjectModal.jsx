@@ -43,6 +43,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
         <div className="od-modal-body">
           <h1>{project.title}</h1>
+          <p>{project.liveUrl ? 'LIVE VIEW' : 'SPEC VIEW'}</p>
         </div>
       </div>
     </div>
