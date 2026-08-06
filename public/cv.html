@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mickey Jr (Coderastrophy) — Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --paper: #f0ead6;
+      --paper-card: #f7f1de;
+      --paper-warm: #ede8d0;
+      --paper-dark: #e0d8bc;
+      --ink: #15140f;
+      --ink-soft: #2a2620;
+      --ink-mute: #5a5448;
+      --ink-faint: #8b8676;
+      --accent: #ed6f5c;
+      --mustard: #e9b94a;
+      --border: rgba(21, 20, 15, 0.18);
+      --border-soft: rgba(21, 20, 15, 0.08);
+
+      --mono: 'DM Mono', Courier, monospace;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Inter', 'Helvetica Neue', sans-serif;
+    }
+
+    html, body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Top Action Bar (hidden in print) */
+    .action-bar {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .action-bar a, .action-bar button {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+      background: transparent;
+      border: 1px solid rgba(240, 234, 214, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-bar a:hover, .action-bar button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--paper-card);
+    }
+
+    /* CV Document Container */
+    .cv-paper {
+      max-width: 860px;
+      margin: 2rem auto 4rem auto;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 3.5rem 4rem;
+      box-shadow: 0 15px 40px rgba(21, 20, 15, 0.08);
+      position: relative;
+    }
+
+    /* Header */
+    .cv-header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 1.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .cv-name {
+      font-family: var(--serif);
+      font-size: 3.4rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .cv-subtitle {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .cv-contact-meta {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink-mute);
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    .cv-contact-meta a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cv-contact-meta a:hover {
+      color: var(--accent);
+    }
+
+    /* Grid Sections */
+    .cv-section {
+      margin-bottom: 2.25rem;
+    }
+
+    .section-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ink);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '●';
+      color: var(--accent);
+      font-size: 8px;
+    }
+
+    /* Summary / Bio */
+    .cv-summary {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+
+    .cv-summary strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2rem;
+    }
+
+    .skill-block {
+      background: var(--paper-card);
+      border: 1px solid var(--border-soft);
+      padding: 10px 14px;
+      border-radius: 6px;
+    }
+
+    .skill-category {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .skill-list {
+      font-size: 12.5px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Projects / Experience Items */
+    .item-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .item-card {
+      border-left: 2px solid var(--border);
+      padding-left: 1.25rem;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .item-badge {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--paper-card);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--ink-mute);
+    }
+
+    .item-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-mute);
+      margin-bottom: 6px;
+    }
+
+    .item-desc {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* Education & Philosophy */
+    .edu-box {
+      background: var(--paper-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .edu-main {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .edu-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-top: 2px;
+    }
+
+    .quote-box {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    .quote-author {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-style: normal;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .cv-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Print Styles */
+    @media print {
+      .action-bar {
+        display: none !important;
+      }
+      body {
+        background: var(--paper) !important;
+      }
+      .cv-paper {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .cv-paper {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .cv-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cv-contact-meta {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden in Print -->
+  <div class="action-bar no-print">
+    <a href="/">← Back to Portfolio</a>
+    <div style="display: flex; gap: 10px;">
+      <a href="/assets/Mickey_Jr_CV.pdf" download="Mickey_Jr_CV.pdf">Download PDF 📄</a>
+      <button onclick="window.print()">Print / Save PDF 🖨️</button>
+    </div>
+  </div>
+
+  <div class="cv-paper">
+    <!-- Header -->
+    <header class="cv-header">
+      <div>
+        <h1 class="cv-name">Mickey Jr</h1>
+        <div class="cv-subtitle">Full-Stack Developer & Systems Thinker</div>
+      </div>
+      <div class="cv-contact-meta">
+        <div>Email: <a href="mailto:miguelabera952@gmail.com">miguelabera952@gmail.com</a></div>
+        <div>GitHub: <a href="https://github.com/Coderastrophy" target="_blank">github.com/Coderastrophy</a></div>
+        <div>LinkedIn: <a href="https://www.linkedin.com/in/mikias-abera-b87b71249" target="_blank">linkedin.com/in/mikias-abera</a></div>
+        <div>Location: Addis Ababa, ET (EAT / UTC+3)</div>
+      </div>
+    </header>
+
+    <!-- Bio Summary -->
+    <section class="cv-section">
+      <div class="section-title">01 / Profile Summary</div>
+      <p class="cv-summary">
+        I am <strong>Mickey Jr (aka Coderastrophy)</strong> — a <strong>3rd year Computer Science and Engineering student at Adama Science and Technology University</strong>. I build full-stack web systems with a focus on real-world architecture, scalable code structure, and functional depth across <strong>20+ open-source repositories</strong>. Passionate about software engineering, system architecture, and philosophical inquiry.
+      </p>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="cv-section">
+      <div class="section-title">02 / Core Skills & Technical Stack</div>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <div class="skill-category">Frontend</div>
+          <div class="skill-list">HTML5, CSS3, JavaScript (ES6+), React.js, Responsive UI/UX</div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-category">Backend</div>
+          <div class="skill-list">Node.js, Express.js, JWT Auth, RESTful APIs, Python, Java</div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-category">Database</div>
+          <div class="skill-list">PostgreSQL, Prisma ORM, MongoDB Architecture</div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-category">Workflow & Tools</div>
+          <div class="skill-list">Git/GitHub, GitHub Actions, Zorin OS / Linux, VS Code</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="cv-section">
+      <div class="section-title">03 / Featured Projects & Repositories</div>
+      <div class="item-group">
+        <div class="item-card">
+          <div class="item-header">
+            <span class="item-title">Finance & Cryptocurrency Dashboard</span>
+            <span class="item-badge">CRYPTO · REACT</span>
+          </div>
+          <div class="item-meta">github.com/Coderastrophy/Crypto-dashboard</div>
+          <p class="item-desc">
+            Live cryptocurrency tracking application rendering real-time price trends, telemetry data, and clean market visual interfaces.
+          </p>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <span class="item-title">Cart & E-Commerce Architecture</span>
+            <span class="item-badge">COMMERCE · FULL-STACK</span>
+          </div>
+          <div class="item-meta">github.com/Coderastrophy/Amazon-clone</div>
+          <p class="item-desc">
+            Full-stack e-commerce simulation showcasing authentic shopping cart state management, checkout logic, and modular UI component design.
+          </p>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <span class="item-title">Mapty Geodata Workout Tracker</span>
+            <span class="item-badge">GEODATA · JS / LEAFLET</span>
+          </div>
+          <div class="item-meta">github.com/Coderastrophy/Leaflet-routing</div>
+          <p class="item-desc">
+            Geolocation workout tracker logging running and cycling routes on interactive Leaflet maps utilizing Object-Oriented JavaScript architecture.
+          </p>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <span class="item-title">PopLogue Cinema & Media Log</span>
+            <span class="item-badge">CINEMA · WEB APP</span>
+          </div>
+          <div class="item-meta">github.com/Coderastrophy/PopLogue</div>
+          <p class="item-desc">
+            Pop-culture and cinema tracking application for logging, reviewing, discovering, and reflecting on films and media content.
+          </p>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <span class="item-title">NeuraNets Blog Content System</span>
+            <span class="item-badge">BLOG SYSTEM · NODE</span>
+          </div>
+          <div class="item-meta">github.com/Coderastrophy/NeuraNets-BCMS</div>
+          <p class="item-desc">
+            Exploration into neural network fundamentals and blog content management systems bridging code, data structures, and cognition.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section">
+      <div class="section-title">04 / Education</div>
+      <div class="edu-box">
+        <div>
+          <div class="edu-main">B.Sc. in Computer Science and Engineering</div>
+          <div class="edu-sub">Adama Science and Technology University (ASTU) · Adama / Addis Ababa, ET</div>
+        </div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); font-weight: 600;">
+          2023 – Present (3rd Year)
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Philosophy -->
+    <section class="cv-section">
+      <div class="section-title">05 / Personal Philosophy</div>
+      <div class="quote-box">
+        "We are not the reason for the existence of the universe, but our ability for self-awareness and reflection makes us special within it."
+        <div class="quote-author">— Mickey Jr</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cv-footer">
+      <div>Coderastrophy · Open Design Aesthetic Curriculum Vitae</div>
+      <div>2026 Edition</div>
+    </footer>
+  </div>
+
+</body>
+</html>

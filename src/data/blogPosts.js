@@ -1,0 +1,126 @@
+export const blogPosts = [
+  {
+    id: 0,
+    title: 'Self-Awareness & Existence',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '2 MIN READ',
+    categories: ['PHILOSOPHY', 'LIFE'],
+    snippet:
+      '"We are not the reason for the existence of the universe, but our ability for self-awareness and reflection makes us special within it." - Mickey Jr',
+    heroImage: 'assets/self-awareness.png',
+    abstract: '"We are not the reason for the existence of the universe..."',
+    quote:
+      '"We are not the reason for the existence of the universe, but our ability for self-awareness and reflection makes us special within it." — Mickey Jr',
+    paragraphs: [
+      'This reflects how I see existence and human potential. The universe does not revolve around us, nor does our existence require some predetermined cosmic purpose to matter. What makes us remarkable is our ability to observe, question, reflect, and create meaning through awareness itself.',
+      'To me, that capacity for conscious thought is what gives value to our presence — not because we are the center of existence, but because we are among the few known parts of it capable of understanding and interpreting it.',
+      'That perspective shapes how I approach both life and technology: with curiosity, humility, and a constant drive to understand systems more deeply.',
+    ],
+  },
+  {
+    id: 1,
+    title: 'Between Two Quiet Pulls',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '4 MIN READ',
+    categories: ['PHILOSOPHY', 'LIFE'],
+    snippet:
+      'I stand between two quiet pulls, each asking for a different kind of surrender. One is the hard road, believing that somewhere ahead it will all make sense...',
+    heroImage: 'assets/schizo.png',
+    abstract: 'I stand between two quiet pulls, each asking for a different kind of surrender.',
+    paragraphs: [
+      'I stand between two quiet pulls, each asking for a different kind of surrender.',
+      'One is the hard road; the one that asks me to give up ease, to carry effort day after day, believing that somewhere ahead it will all make sense.',
+      'The other is softer, almost kind, offering me rest, small pleasures, a life that asks nothing and promises nothing.',
+      'Yet neither lets me be. When I lean toward comfort, a thin voice rises within me, reminding me of all that I am not becoming. And when I turn toward the harder path, I feel its weight too soon, as if I have already failed before taking the first step.',
+      'So I remain here, in this narrow space between wanting and doing, where even my thoughts feel heavy, and time moves on without asking me what I have decided.',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Lost Momentum',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '3 MIN READ',
+    categories: ['ACADEMIA'],
+    snippet:
+      "I think I have lost the interest to nerd out, compete and assert dominance and the overall momentum I've had for long years...",
+    heroImage: 'assets/philosophy.png',
+    abstract: 'Navigating loss of competitive drive and shifting internal focus.',
+    paragraphs: [
+      "I think I have lost the interest to nerd out, compete and assert dominance and the overall momentum I've had for long years.",
+      'There was a time when curiosity and competitive drive fueled every project, every late-night coding session, and every deep dive into complex theory.',
+      'Lately, that edge feels different — quieter, less concerned with external benchmarks or proving technical superiority, and more tuned toward intentional building and clarity.',
+      'Recognizing this shift is not an admission of defeat, but a pivot from performance-driven coding toward meaningful, sustainable systems thinking.',
+    ],
+  },
+  {
+    id: 3,
+    title: 'The Quiet Fear',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '3 MIN READ',
+    categories: ['CAREER'],
+    snippet:
+      'The fear is quiet but constant. "What if I end up unemployed?" "What if I don’t figure it out in time?"...',
+    heroImage: 'assets/darktheme.png',
+    abstract: 'Confronting career anxiety in software development and tech.',
+    paragraphs: [
+      'The fear is quiet but constant. "What if I end up unemployed?" "What if I don’t figure it out in time?"',
+      'In an era of rapid technological shifts, market uncertainties, and endless online performance art, the pressure on student developers can feel overwhelming.',
+      'The key is grounding yourself in fundamentals. Frameworks come and go, but strong problem-solving skills, architectural clarity, and resilient work habits remain indispensable.',
+    ],
+  },
+  {
+    id: 4,
+    title: 'Reality Check Behind Unsustainable Online Hustle',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '4 MIN READ',
+    categories: ['HUSTLE', 'BURNOUT'],
+    snippet:
+      'I used to make good money online sometimes more than I thought I ever would. Now I’m at zero. This is the harsh reality no one talks about...',
+    heroImage: 'assets/blog1.png',
+    abstract: 'An honest reflection on online freelancing, income volatility, and burnout.',
+    paragraphs: [
+      'I used to make good money online, sometimes more than I thought I ever would. Now I’m at zero. This is the harsh reality no one talks about.',
+      'Online hustle culture preaches infinite scale and passive income, while ignoring the mental tax, platform dependency, and sudden revenue drops.',
+      'True sustainability comes from building real skills, enduring software architecture, and long-term leverage rather than chasing volatile internet trends.',
+    ],
+  },
+  {
+    id: 5,
+    title: 'Uncontrollable Variables',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '2 MIN READ',
+    categories: ['WORKFLOW'],
+    snippet:
+      'The one time you finally get inspired to lock in and focus, and then your telecom provider blesses you with the worst possible network...',
+    heroImage: 'assets/image.png',
+    abstract: 'Dealing with local infrastructure constraints and unexpected friction in deep work.',
+    paragraphs: [
+      'The one time you finally get inspired to lock in and focus, and then your telecom provider blesses you with the worst possible network...',
+      'Developing software in environments with unreliable connectivity teaches a unique kind of patience and resilience.',
+      'It forces you to work offline-first, organize your local environment efficiently, and cherish uninterrupted focus blocks when they occur.',
+    ],
+  },
+  {
+    id: 6,
+    title: 'Being Unmasked',
+    date: 'MAY 2026',
+    publishedDate: '02 May 2026',
+    readTime: '3 MIN READ',
+    categories: ['IDENTITY'],
+    snippet:
+      '"Be unmasked." It’s a big phrase. The kind of thing people say when they want to sound wise. But I don’t think I even qualify for it...',
+    heroImage: 'assets/schizo.png',
+    abstract: 'Authenticity vs persona in technology, public writing, and personal growth.',
+    paragraphs: [
+      '"Be unmasked." It’s a big phrase. The kind of thing people say when they want to sound wise. But I don’t think I even qualify for it.',
+      'We construct personas online — curated repositories, polished portfolios, and calculated thoughts. Strip that away, and what remains is raw curiosity and a commitment to continuous growth.',
+      'Embracing vulnerability in work and thought allows for authentic connection and genuine self-improvement.',
+    ],
+  },
+];
