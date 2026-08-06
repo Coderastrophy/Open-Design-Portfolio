@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const ProjectModal = ({ isOpen, onClose }) => {
+const ProjectModal = ({ isOpen, onClose, project }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -21,7 +21,7 @@ const ProjectModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !project) return null;
 
   return (
     <div
@@ -42,6 +42,7 @@ const ProjectModal = ({ isOpen, onClose }) => {
         </div>
 
         <div className="od-modal-body">
+          <h1>{project.title}</h1>
         </div>
       </div>
     </div>
