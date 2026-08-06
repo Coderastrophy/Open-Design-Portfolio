@@ -43,7 +43,17 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
         <div className="od-modal-body">
           <h1>{project.title}</h1>
-          <p>{project.liveUrl ? 'LIVE VIEW' : 'SPEC VIEW'}</p>
+          {project.liveUrl ? (
+            <iframe
+              src={project.liveUrl}
+              title={project.title}
+              style={{ width: '100%', height: '450px', border: 'none' }}
+            />
+          ) : (
+            <div className="tech-stack-display">
+              {Array.isArray(project.techStack) ? project.techStack.join(', ') : project.techStack}
+            </div>
+          )}
         </div>
       </div>
     </div>
