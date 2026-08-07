@@ -4,7 +4,7 @@
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat-square&logo=vercel)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 
-A living archive of experiments in code, full-stack systems, and *Schizo-Philosophy* episodes.
+A living archive of experiments in code, full-stack systems, and *Stoic-Philosophy* episodes.
 
 🔗 **Live site:** [open-design-inspired-all-in-one-por.vercel.app](https://open-design-inspired-all-in-one-por.vercel.app/)
 
