@@ -9,8 +9,6 @@ const CATEGORIES = [
   'CINEMA',
   'BLOG SYSTEM',
   'REACT',
-  'AI / CHAT',
-  'UTILITIES',
 ];
 
 const ProjectFilter = ({ activeTag, onSelectTag, searchQuery, onSearchChange }) => {
