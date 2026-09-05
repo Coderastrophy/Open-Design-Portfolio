@@ -8,6 +8,9 @@ const CATEGORIES = [
   'GEODATA',
   'CINEMA',
   'BLOG SYSTEM',
+  'REACT',
+  'AI / CHAT',
+  'UTILITIES',
 ];
 
 const ProjectFilter = ({ activeTag, onSelectTag, searchQuery, onSearchChange }) => {

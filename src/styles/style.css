@@ -897,6 +897,41 @@ nav, .navbar-container {
   letter-spacing: 0.08em;
 }
 
+.contrib-year-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--paper-2);
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.contrib-year-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+  padding: 3px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contrib-year-btn:hover {
+  color: var(--ink);
+  background: var(--paper-3);
+}
+
+.contrib-year-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 500;
+}
+
 .contrib-wrapper-scrollable {
   overflow-x: auto;
   width: 100%;
