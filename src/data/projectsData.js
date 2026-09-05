@@ -7,7 +7,7 @@ export const projectsData = [
     tags: ['FULL-STACK', 'REACT', 'NODE', 'PRODUCTIVITY'],
     desc: 'A full-stack productivity & task management engine with JWT authentication, MongoDB schemas, and drag-and-drop workflow execution.',
     description: 'A full-stack productivity & task management engine with JWT authentication, MongoDB schemas, and drag-and-drop workflow execution.',
-    image: 'assets/darktheme.png',
+    image: 'assets/paraxis.png',
     url: 'https://github.com/Coderastrophy/Paraxis',
     repoUrl: 'https://github.com/Coderastrophy/Paraxis',
     liveUrl: 'https://paraxis-five.vercel.app',
@@ -287,47 +287,6 @@ export const projectsData = [
       'Neural network visualization dashboard showing weights and nodes.',
       'Full CRUD content management interface.',
       'PostgreSQL relational schema for structured article metadata.',
-    ],
-  },
-  {
-    num: '08',
-    id: 'classy-weather',
-    title: 'Classy Weather',
-    badge: 'REACT',
-    tags: ['REACT', 'FRONTEND', 'GEODATA'],
-    desc: 'A weather forecasting interface demonstrating lifecycle architecture, Open-Meteo API querying, and auto-geolocation.',
-    description: 'A weather forecasting interface demonstrating lifecycle architecture, Open-Meteo API querying, and auto-geolocation.',
-    image: 'assets/philosophy.png',
-    url: 'https://github.com/Coderastrophy/classy-Weather',
-    repoUrl: 'https://github.com/Coderastrophy/classy-Weather',
-    liveUrl: null,
-    techStack: ['React', 'Open-Meteo API', 'GeoNames API', 'CSS3'],
-    readme: {
-      title: 'Classy Weather — Geolocation & Forecast Engine',
-      summary: 'Weather application querying Open-Meteo APIs for 7-day temperature telemetry, weather codes, and automatic geocoding from town or city search queries.',
-      installation: [
-        'git clone https://github.com/Coderastrophy/classy-Weather.git',
-        'cd classy-Weather',
-        'npm install',
-        'npm start'
-      ],
-      keyModules: [
-        'Open-Meteo Meteorological Data Integration',
-        'Geocoding API coordinate resolution',
-        '7-Day Multi-Metric Forecast Card Rendering',
-        'LocalStorage Location Memory'
-      ]
-    },
-    architecture: {
-      overview: 'Weather forecast pipeline resolving location strings to coordinates before fetching meteorological telemetry.',
-      frontend: 'Weather visualizer with weather code icon mapping.',
-      backend: 'Open-Meteo asynchronous REST pipeline.',
-      dataFlow: 'Location input -> Geocode API -> Coordinates -> Weather API -> Rendered Forecast.',
-    },
-    features: [
-      'Instant city search with automatic coordinate resolution.',
-      '7-day multi-metric forecast display (max/min temps, conditions).',
-      'Persistent location history in browser storage.',
     ],
   }
 ];
