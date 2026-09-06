@@ -1,104 +1,74 @@
 import React, { useState } from 'react';
 
 const Skills = () => {
-  const [activeFilter, setActiveFilter] = useState('ALL');
-  const [hoveredTech, setHoveredTech] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState(null);
 
-  const stackCategories = [
+  const stackColumns = [
     {
       id: 'frontend',
-      filterKey: 'FRONTEND',
       number: '01',
-      domain: 'FRONTEND & INTERFACES',
-      badge: 'CLIENT LAYER',
-      tagline: 'Declarative state machines, component lifecycles & responsive user experiences.',
+      tag: '[ 01 / CLIENT & UI ]',
+      title: 'Frontend Interfaces',
+      summary: 'Declarative component architecture & responsive design systems.',
       techs: [
-        { name: 'React.js (v18+)', role: 'Core UI Framework', highlight: true },
-        { name: 'JavaScript (ES6+)', role: 'Modern Client Logic', highlight: true },
-        { name: 'HTML5 & Semantic Web', role: 'Accessible Markup', highlight: false },
-        { name: 'CSS3 / Grid & Flexbox', role: 'Fluid Layout Systems', highlight: false },
-        { name: 'Bootstrap 5', role: 'Component Scaffolding', highlight: false },
-        { name: 'Vite & Modern Bundlers', role: 'Build Tooling & HMR', highlight: true },
+        { name: 'React.js', spec: 'v18+ Hooks & State Machine' },
+        { name: 'JavaScript', spec: 'Modern ES6+ / Closures / Async' },
+        { name: 'HTML5', spec: 'Semantic & Accessible Web' },
+        { name: 'CSS3 / Grid', spec: 'Fluid Responsive Layouts' },
+        { name: 'Bootstrap 5', spec: 'Modular UI Scaffolding' },
+        { name: 'Vite', spec: 'HMR & Build Tooling' },
       ],
-      capabilities: [
-        'Component State Orchestration',
-        'Custom React Hooks',
-        'Fluid Responsive Breakpoints',
-        'Performance & Virtual DOM',
-      ],
+      capabilities: ['Virtual DOM', 'State Machines', 'Responsive UI', 'Component Lifecycle'],
     },
     {
       id: 'backend',
-      filterKey: 'BACKEND',
       number: '02',
-      domain: 'BACKEND & SERVICES',
-      badge: 'SERVER RUNTIME',
-      tagline: 'High-throughput APIs, stateless security tokens & server-side middleware pipelines.',
+      tag: '[ 02 / SERVER & API ]',
+      title: 'Backend Services',
+      summary: 'High-concurrency servers, REST routing & stateless auth pipelines.',
       techs: [
-        { name: 'Node.js', role: 'Async Event Loop Engine', highlight: true },
-        { name: 'Express.js', role: 'RESTful API Routing', highlight: true },
-        { name: 'JWT Authentication', role: 'Token Security & RBAC', highlight: true },
-        { name: 'Python', role: 'Scripting & Algorithms', highlight: false },
-        { name: 'Java', role: 'OOP & Core Computing', highlight: false },
-        { name: 'REST Architecture', role: 'Resource Controller Specs', highlight: false },
+        { name: 'Node.js', spec: 'Async Event-Driven Engine' },
+        { name: 'Express.js', spec: 'RESTful API Routing Engine' },
+        { name: 'JWT Auth', spec: 'Stateless Bearer Security' },
+        { name: 'Python', spec: 'Scripting & Core Computing' },
+        { name: 'Java', spec: 'OOP & Software Engineering' },
+        { name: 'REST APIs', spec: 'Resource Controllers & CORS' },
       ],
-      capabilities: [
-        'Middleware Request Pipelines',
-        'Stateless Auth & Bearer Tokens',
-        'Input Validation & Error Handling',
-        'Cross-Origin Security & CORS',
-      ],
+      capabilities: ['Middleware Pipelines', 'Stateless Auth', 'Async I/O', 'CORS Security'],
     },
     {
       id: 'database',
-      filterKey: 'DATABASE',
       number: '03',
-      domain: 'PERSISTENCE & DATA',
-      badge: 'STORAGE LAYER',
-      tagline: 'Normalized relational architectures, document structures & type-safe ORM pipelines.',
+      tag: '[ 03 / DATA & STORAGE ]',
+      title: 'Databases & Schemas',
+      summary: 'Relational ACID integrity, document collections & type-safe ORMs.',
       techs: [
-        { name: 'PostgreSQL', role: 'Primary Relational RDBMS', highlight: true },
-        { name: 'Prisma ORM', role: 'Type-Safe Modeling', highlight: true },
-        { name: 'MongoDB', role: 'Document Database', highlight: true },
-        { name: 'Mongoose', role: 'Schema & Validation', highlight: false },
-        { name: 'SQL Query Tuning', role: 'Relational Indexing', highlight: false },
-        { name: 'Data Normalization', role: 'Schema Integrity', highlight: false },
+        { name: 'PostgreSQL', spec: 'Relational RDBMS & ACID' },
+        { name: 'Prisma ORM', spec: 'Type-Safe Data Modeling' },
+        { name: 'MongoDB', spec: 'Document Data Store' },
+        { name: 'Mongoose', spec: 'Schema Validation Models' },
+        { name: 'SQL Indexing', spec: 'Relational Query Optimization' },
+        { name: 'Data Modeling', spec: 'Schema Normalization' },
       ],
-      capabilities: [
-        'ACID Transactions & Constraints',
-        'Declarative Migration Pipelines',
-        'Complex Relational Joins & BSON',
-        'Optimized Index Strategies',
-      ],
+      capabilities: ['ACID Guarantees', 'Schema Migrations', 'Document Trees', 'Index Tuning'],
     },
     {
       id: 'workflow',
-      filterKey: 'WORKFLOW',
       number: '04',
-      domain: 'WORKFLOW & SYSTEMS',
-      badge: 'DEVOPS & UNIX',
-      tagline: 'UNIX shell automation, continuous integration workflows & AI-augmented development.',
+      tag: '[ 04 / TOOLING & UNIX ]',
+      title: 'Workflow & Systems',
+      summary: 'UNIX environment mastery, automated CI/CD & AI-assisted coding.',
       techs: [
-        { name: 'VS Code', role: 'Configured IDE Suite', highlight: false },
-        { name: 'Zorin OS / Linux', role: 'Native UNIX Environment', highlight: true },
-        { name: 'Git & GitHub Workflows', role: 'Commit-Driven Dev', highlight: true },
-        { name: 'GitHub Actions', role: 'CI/CD Automated Deploy', highlight: true },
-        { name: 'Claude Code & Codex', role: 'AI-Assisted Engineering', highlight: true },
-        { name: 'Vercel Platform', role: 'Edge Deployment', highlight: false },
+        { name: 'VS Code', spec: 'Customized IDE Suite' },
+        { name: 'Zorin OS', spec: 'Native Linux Shell & UNIX' },
+        { name: 'Git & GitHub', spec: 'Commit-Driven Development' },
+        { name: 'GitHub Actions', spec: 'CI/CD Automated Deploy' },
+        { name: 'Claude & Codex', spec: 'AI-Augmented Engineering' },
+        { name: 'Vercel', spec: 'Edge Platform Deployments' },
       ],
-      capabilities: [
-        'Branching & Release Pipelines',
-        'Bash & Linux Shell Scripting',
-        'Automated CI Test Builds',
-        'Developer Productivity Tooling',
-      ],
+      capabilities: ['Linux Shell', 'CI/CD Pipelines', 'Git Flow', 'Edge Deployment'],
     },
   ];
-
-  const filteredCategories =
-    activeFilter === 'ALL'
-      ? stackCategories
-      : stackCategories.filter((cat) => cat.filterKey === activeFilter);
 
   return (
     <>
@@ -108,94 +78,59 @@ const Skills = () => {
         <span className="section-count">002 / 005</span>
       </div>
 
-      <section className="stacks-section fade-in visible">
-        <div className="stacks-container">
-          
-          {/* Header Meta & Filter Toolbar */}
-          <div className="stacks-toolbar-wrap">
-            <div className="stacks-meta-badge">
-              <span className="stacks-meta-dot"></span>
-              <span className="stacks-meta-text">ARCHITECTURAL MATRIX · 24+ TECHNOLOGIES</span>
-            </div>
+      <section className="od-stacks-ledger-section fade-in visible">
+        <div className="od-stacks-grid">
+          {stackColumns.map((col) => (
+            <div className="od-stack-column" key={col.id}>
+              {/* Column Header */}
+              <div className="od-stack-col-head">
+                <span className="od-stack-num">{col.number}</span>
+                <span className="od-stack-domain-tag">{col.tag}</span>
+                <h3 className="od-stack-col-title">{col.title}</h3>
+                <p className="od-stack-col-desc">{col.summary}</p>
+              </div>
 
-            <div className="stacks-filter-nav" role="tablist">
-              {['ALL', 'FRONTEND', 'BACKEND', 'DATABASE', 'WORKFLOW'].map((tab) => (
-                <button
-                  key={tab}
-                  className={`stacks-tab-btn ${activeFilter === tab ? 'active' : ''}`}
-                  onClick={() => setActiveFilter(tab)}
-                  role="tab"
-                  aria-selected={activeFilter === tab}
-                >
-                  {tab === 'ALL' ? '[ ALL STACKS ]' : `[ ${tab} ]`}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Stacks Grid */}
-          <div className="stacks-grid">
-            {filteredCategories.map((group) => (
-              <div className="stack-card" key={group.id}>
-                {/* Card Top / Header */}
-                <div className="stack-card-header">
-                  <div className="stack-card-meta">
-                    <span className="stack-card-num">{group.number}</span>
-                    <span className="stack-card-badge">{group.badge}</span>
-                  </div>
-                  <h3 className="stack-card-title">{group.domain}</h3>
-                  <p className="stack-card-tagline">{group.tagline}</p>
-                </div>
-
-                {/* Primary Tech Stack Grid */}
-                <div className="stack-tech-list">
-                  {group.techs.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className={`stack-tech-item ${tech.highlight ? 'highlight' : ''}`}
-                      onMouseEnter={() => setHoveredTech(tech.name)}
-                      onMouseLeave={() => setHoveredTech(null)}
-                    >
-                      <div className="stack-tech-indicator"></div>
-                      <div className="stack-tech-info">
-                        <span className="stack-tech-name">{tech.name}</span>
-                        <span className="stack-tech-role">{tech.role}</span>
-                      </div>
+              {/* Stack Item Rows */}
+              <div className="od-stack-list">
+                {col.techs.map((t, idx) => (
+                  <div
+                    key={idx}
+                    className="od-stack-row"
+                    onMouseEnter={() => setHoveredItem(`${col.id}-${idx}`)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                  >
+                    <div className="od-stack-row-main">
+                      <span className="od-stack-tech-name">{t.name}</span>
+                      <span className="od-stack-tech-spec">{t.spec}</span>
                     </div>
+                    <span className="od-stack-arrow">→</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Column Footer: Capabilities */}
+              <div className="od-stack-col-foot">
+                <span className="od-stack-foot-label">CAPABILITIES</span>
+                <div className="od-stack-pill-wrap">
+                  {col.capabilities.map((cap, cIdx) => (
+                    <span className="od-stack-pill" key={cIdx}>
+                      {cap}
+                    </span>
                   ))}
                 </div>
-
-                {/* Card Footer: Capabilities / Specs */}
-                <div className="stack-card-footer">
-                  <span className="stack-footer-label">CORE CAPABILITIES</span>
-                  <div className="stack-caps-row">
-                    {group.capabilities.map((cap, cIdx) => (
-                      <span className="stack-cap-tag" key={cIdx}>
-                        {cap}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </div>
-            ))}
-          </div>
-
-          {/* Stacks System Footer Callout */}
-          <div className="stacks-system-callout">
-            <div className="stacks-callout-code">
-              <span className="callout-mono-prompt">$</span>
-              <span className="callout-mono-cmd">sys_spec --integrity --depth</span>
             </div>
-            <p className="stacks-callout-desc">
-              "From front-end component state machines to back-end controllers and relational schemas, every layer is engineered with depth, intention, and structural integrity."
-            </p>
-            <div className="stacks-callout-badges">
-              <span className="stacks-badge-item">EST. 20+ REPOSITORIES</span>
-              <span className="stacks-badge-item">ZORIN OS / LINUX NATIVE</span>
-              <span className="stacks-badge-item">CONTINUOUS DEPLOYMENT</span>
-            </div>
-          </div>
+          ))}
+        </div>
 
+        {/* Bottom Ledger Summary Bar */}
+        <div className="od-stacks-footbar">
+          <span className="od-footbar-item">
+            <span className="od-footbar-dot"></span>
+            SYS-SPEC // FULL-STACK ARCHITECTURAL INTEGRITY
+          </span>
+          <span className="od-footbar-item">24+ PRODUCTION RUNTIMES & PACKAGES</span>
+          <span className="od-footbar-item">COMMIT-DRIVEN · LINUX NATIVE · OPEN SOURCE</span>
         </div>
       </section>
     </>
