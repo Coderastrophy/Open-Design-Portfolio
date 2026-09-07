@@ -1835,15 +1835,17 @@ body.dark-theme .theme-img-dark {
   box-shadow: 0 0 0 1px var(--accent), 0 4px 14px rgba(237, 111, 92, 0.18);
 }
 
-.chip-emoji {
-  font-size: 1.25rem;
-  line-height: 1;
-  display: inline-block;
-  transition: transform 0.2s ease;
+.chip-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.choice-chip-btn:hover .chip-emoji {
-  transform: scale(1.15) rotate(-6deg);
+.choice-chip-btn:hover .chip-logo {
+  transform: scale(1.2) rotate(-6deg);
 }
 
 .chip-label {
@@ -1858,7 +1860,7 @@ body.dark-theme .theme-img-dark {
   margin-left: 0.15rem;
 }
 
-/* Floating Emoji Particles */
+/* Floating Logo Particles */
 .chips-particles-layer {
   position: absolute;
   inset: 0;
@@ -1867,14 +1869,20 @@ body.dark-theme .theme-img-dark {
   z-index: 40;
 }
 
-.floating-emoji-particle {
+.floating-logo-particle {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 2.2rem;
-  line-height: 1;
   transform-origin: center;
   animation: floatUpBurst 1.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.floating-logo-particle img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 @keyframes floatUpBurst {
@@ -2002,12 +2010,31 @@ body.dark-theme .theme-img-dark {
 .spotlight-title-group {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
 
-.spotlight-emoji {
-  font-size: 1.35rem;
-  line-height: 1;
+.spotlight-logo {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Dark mode handling for pure-black logos (Express, Vercel, Prisma, JSON) */
+body.dark-theme .choice-chip-btn img[src*="express"],
+body.dark-theme .choice-chip-btn img[src*="vercel"],
+body.dark-theme .choice-chip-btn img[src*="prisma"],
+body.dark-theme .choice-chip-btn img[src*="json"],
+body.dark-theme .floating-logo-particle img[src*="express"],
+body.dark-theme .floating-logo-particle img[src*="vercel"],
+body.dark-theme .floating-logo-particle img[src*="prisma"],
+body.dark-theme .floating-logo-particle img[src*="json"],
+body.dark-theme .spotlight-logo[src*="express"],
+body.dark-theme .spotlight-logo[src*="vercel"],
+body.dark-theme .spotlight-logo[src*="prisma"],
+body.dark-theme .spotlight-logo[src*="json"] {
+  filter: brightness(0) invert(1);
 }
 
 .spotlight-name {
