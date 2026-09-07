@@ -312,38 +312,32 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Staggered Choice Chips Rows */}
-          <div className="chips-scroll-track">
-            <div className="chips-rows-wrapper">
-              {rows.map((row, rowIndex) => (
-                <div key={rowIndex} className={`chips-row row-stagger-${rowIndex}`}>
-                  {row.map((item) => {
-                    const isSelected = selected.includes(item.id);
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={(e) => toggleChip(item, e)}
-                        onMouseEnter={() => setActiveHover(item.id)}
-                        onMouseLeave={() => setActiveHover(null)}
-                        className={`choice-chip-btn ${isSelected ? 'selected' : ''}`}
-                        title={`${item.label} (${item.category}) - Click to toggle`}
-                      >
-                        <img
-                          src={item.logo}
-                          alt={item.label}
-                          className="chip-logo"
-                          width="20"
-                          height="20"
-                          loading="lazy"
-                        />
-                        <span className="chip-label">{item.label}</span>
-                        {isSelected && <span className="chip-check-mark">✓</span>}
-                      </button>
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
+          {/* Fluid Wrapped Choice Chips Cloud (No scrollbars, natural wrap) */}
+          <div className="chips-cloud-wrapper">
+            {filteredItems.map((item) => {
+              const isSelected = selected.includes(item.id);
+              return (
+                <button
+                  key={item.id}
+                  onClick={(e) => toggleChip(item, e)}
+                  onMouseEnter={() => setActiveHover(item.id)}
+                  onMouseLeave={() => setActiveHover(null)}
+                  className={`choice-chip-btn ${isSelected ? 'selected' : ''}`}
+                  title={`${item.label} (${item.category}) - Click to toggle`}
+                >
+                  <img
+                    src={item.logo}
+                    alt={item.label}
+                    className="chip-logo"
+                    width="20"
+                    height="20"
+                    loading="lazy"
+                  />
+                  <span className="chip-label">{item.label}</span>
+                  {isSelected && <span className="chip-check-mark">✓</span>}
+                </button>
+              );
+            })}
           </div>
 
           {/* Floating Logo Particles Layer */}

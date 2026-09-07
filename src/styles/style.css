@@ -1761,39 +1761,18 @@ body.dark-theme .theme-img-dark {
   font-weight: 600;
 }
 
-/* Staggered Rows of Choice Chips */
-.chips-scroll-track {
+/* Fluid Wrapped Choice Chips Cloud (Zero Scrollbar, 100% natural wrap) */
+.chips-cloud-wrapper {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding: 1rem 0.5rem;
-  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
-}
-
-.chips-rows-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-  width: max-content;
-  min-width: 100%;
-  align-items: center;
+  max-width: 980px;
   margin: 0 auto;
-}
-
-.chips-row {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: center;
-  flex-wrap: nowrap;
-}
-
-.row-stagger-1 {
-  transform: translateX(18px);
-}
-
-.row-stagger-2 {
-  transform: translateX(-18px);
+  align-items: center;
+  gap: 0.85rem 1rem;
+  padding: 0.5rem 0;
+  overflow: visible;
 }
 
 /* Individual Choice Chip Button */
@@ -2101,24 +2080,13 @@ body.dark-theme .spotlight-logo[src*="json"] {
     gap: 0.5rem;
   }
 
-  .chip-emoji {
-    font-size: 1.1rem;
+  .chip-logo {
+    width: 17px;
+    height: 17px;
   }
 
-  .row-stagger-1,
-  .row-stagger-2 {
-    transform: none;
-  }
-
-  .chips-rows-wrapper {
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .chips-row {
-    flex-wrap: wrap;
-    justify-content: center;
+  .chips-cloud-wrapper {
+    gap: 0.65rem 0.75rem;
   }
 
   .chips-capsule-bar {
