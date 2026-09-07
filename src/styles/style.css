@@ -502,8 +502,8 @@ nav, .navbar-container {
   border-radius: 10px;
 }
 
-/* ── TABBED ABOUT SECTION ── */
-.about-tabbed-section {
+/* ── MODERN ABOUT / PROFILE SECTION (WATERMELON UI & BENTO HYBRID) ── */
+.about-modern-section {
   padding: 4.5rem 2rem;
   border-bottom: 0.5px solid var(--border);
   background: var(--paper);
@@ -511,62 +511,99 @@ nav, .navbar-container {
   box-sizing: border-box;
 }
 
-.about-tabbed-container {
-  max-width: 980px;
+.about-modern-container {
+  max-width: 1100px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Horizontal Navigation Bar */
-.about-tab-nav {
+/* Watermelon UI Segmented Pill Track */
+.about-pill-track {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1.75rem;
-  margin-bottom: 3.25rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1.1rem;
+  justify-content: center;
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 6px;
+  gap: 8px;
+  margin: 0 auto 3.5rem auto;
+  width: max-content;
+  max-width: 100%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
   flex-wrap: wrap;
 }
 
-.about-tab-btn {
+.about-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-3);
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  background: none;
-  border: none;
-  padding: 0.6rem 1.25rem;
+  letter-spacing: 0.05em;
   cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
   position: relative;
-  transition: color 0.25s ease, background 0.2s ease;
-  border-radius: 4px;
 }
 
-.about-tab-btn:hover {
+.about-pill-btn .pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  opacity: 0.4;
+  transition: all 0.2s ease;
+}
+
+.about-pill-btn .pill-index {
+  font-size: 11px;
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+.about-pill-btn .pill-label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.about-pill-btn:hover {
   color: var(--ink);
+  background: rgba(0, 0, 0, 0.03);
 }
 
-.about-tab-btn.active {
+body.dark-theme .about-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.about-pill-btn.active {
+  background: var(--paper);
   color: var(--ink);
-  font-weight: 700;
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
 }
 
-.about-tab-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1.1rem;
-  left: 0;
-  right: 0;
-  height: 2.5px;
+.about-pill-btn.active .pill-dot {
   background: var(--accent);
+  opacity: 1;
+  box-shadow: 0 0 8px var(--accent);
 }
 
-/* Tab Panel & Transitions */
+.about-pill-btn.active .pill-index {
+  opacity: 0.9;
+  color: var(--accent);
+}
+
+/* TAB PANEL COMMON */
 .about-tab-panel {
-  min-height: 380px;
+  min-height: 480px;
 }
 
 .tab-pane-fade {
@@ -576,7 +613,7 @@ nav, .navbar-container {
 @keyframes fadeInTab {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -584,174 +621,578 @@ nav, .navbar-container {
   }
 }
 
-.tab-pane-label {
-  display: block;
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.25rem;
+/* ── TAB 1: DOSSIER GRID ── */
+.about-dossier-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: start;
 }
 
-.about-tab-heading {
-  font-family: var(--serif);
-  font-size: 2.2rem;
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--ink);
-  margin-bottom: 1.75rem;
-  letter-spacing: -0.01em;
-}
-
-/* Tab 1: Single-column Bio */
-.about-bio-single-col {
-  max-width: 72ch;
-  margin: 0 auto;
-}
-
-.about-bio-text-group {
+.about-dossier-narrative {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
 }
 
-/* Bento & About Text Typography */
-.bento-text {
+.dossier-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.85rem;
+}
+
+.dossier-status-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #10b981;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: statusBlink 2s infinite ease-in-out;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.dossier-fig-label {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about-dossier-heading {
+  font-family: var(--serif);
+  font-size: 2.35rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.about-dossier-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.dossier-para {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.75;
   color: var(--ink-2);
-  font-weight: 400;
+  margin: 0;
 }
 
-.bento-text strong {
+.dossier-para strong {
   color: var(--ink);
   font-weight: 600;
 }
 
-.bento-text em {
-  font-style: italic;
+.dossier-para em {
   color: var(--ink);
+  font-style: italic;
 }
 
-.bento-text-highlight {
-  background: rgba(21, 20, 15, 0.035);
-  border-left: 3px solid var(--accent);
-  padding: 1.15rem 1.4rem;
-  border-radius: 0 8px 8px 0;
-  margin-top: 0.35rem;
+.coderastrophy-callout-card {
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-left: 3.5px solid var(--accent);
+  padding: 1.35rem 1.5rem;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.bento-text-sm {
-  font-size: 14.5px !important;
-  line-height: 1.7 !important;
-  color: var(--ink-2);
-}
-
-/* Tab 2: Build Split-Screen */
-.about-build-split {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 3rem;
+.callout-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.about-build-frame {
-  width: 100%;
-  height: 260px;
-  border-radius: 12px;
-  overflow: hidden;
+.callout-tag {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.callout-quote-icon {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 0.8;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.callout-body {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.dossier-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.dossier-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  background: var(--paper-card);
   border: 1px solid var(--border);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  color: var(--ink-3);
+  transition: all 0.2s ease;
 }
 
-.about-build-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.dossier-chip:hover {
+  color: var(--ink);
+  border-color: var(--border-strong);
+  background: var(--paper-warm);
 }
 
-.about-build-text-col {
+/* SPEC DOSSIER CARDS (RIGHT COLUMN) */
+.about-dossier-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spec-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.spec-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.spec-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spec-card-icon {
+  font-size: 1.35rem;
+}
+
+.spec-badge {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  color: var(--ink-2);
+}
+
+.spec-card-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.spec-card-desc {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+/* ── TAB 2: CRAFT & SYSTEMS ── */
+.about-craft-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.craft-showcase-column {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-.about-build-badge-row {
+.craft-browser-window {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--paper-card);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+}
+
+.craft-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px 14px;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--border);
+}
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.window-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.window-url-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  flex: 1;
+}
+
+.url-lock {
+  font-size: 10px;
+}
+
+.craft-window-body {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: #000;
+}
+
+.craft-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.craft-browser-window:hover .craft-preview-image {
+  transform: scale(1.03);
+}
+
+.craft-overlay-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.craft-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+.craft-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.craft-metric-num {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.craft-metric-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.craft-details-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.craft-header-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.craft-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.craft-pillar-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.craft-pillar-card:hover {
+  border-color: var(--border-strong);
+  transform: translateX(4px);
+}
+
+.pillar-index-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  padding-top: 2px;
+}
+
+.pillar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pillar-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.pillar-text {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.craft-tech-pill-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
 }
 
-.bento-badge {
-  display: inline-flex;
-  align-items: center;
+.craft-tech-chip {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 12px;
+  padding: 4px 10px;
   background: var(--paper-warm);
-  color: var(--ink-2);
   border: 1px solid var(--border);
   border-radius: 4px;
+  color: var(--ink-2);
 }
 
-/* Tab 3: Philosophy Centered */
-.about-philosophy-centered {
-  max-width: 700px;
+/* ── TAB 3: PHILOSOPHY & MINDSET ── */
+.about-philosophy-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 920px;
   margin: 0 auto;
-  text-align: center;
+}
+
+.philo-monument-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3.5rem 3rem 3rem 3rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+  position: relative;
 }
 
-.about-philo-image-container {
-  width: 175px;
-  height: 175px;
-  margin-bottom: 1.75rem;
+.philo-silhouette-wrap {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
 }
 
-.about-philo-img {
+.philo-monument-card:hover .philo-silhouette-wrap {
+  transform: scale(1.05);
+}
+
+.philo-silhouette-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: grayscale(100%);
 }
 
-.about-philo-quote {
+.philo-quote-container {
+  position: relative;
+  margin-bottom: 2rem;
+  max-width: 780px;
+}
+
+.philo-glyph {
   font-family: var(--serif);
-  font-size: 1.65rem;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.25;
+  display: block;
+  margin-bottom: -1rem;
+}
+
+.philo-lead-quote {
+  font-family: var(--serif);
+  font-size: 1.85rem;
   font-style: italic;
   line-height: 1.45;
   color: var(--ink);
-  margin: 0 0 1.75rem 0;
-  padding: 0 1rem;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.01em;
 }
 
-.about-philo-author {
+.philo-author-tag {
   display: block;
   font-family: var(--mono);
   font-style: normal;
-  font-size: 12.5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   color: var(--accent);
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
 }
 
-.about-philo-desc {
-  max-width: 62ch;
+.philo-manifesto-text {
+  font-family: var(--sans);
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--ink-2);
+  max-width: 68ch;
   margin: 0 auto;
+}
+
+.philo-axioms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.axiom-card {
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.22s ease;
+}
+
+.axiom-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.axiom-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.axiom-roman {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.axiom-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.axiom-body {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
 }
 
 /* ── SKILLS / PROJECTS GRID ── */
@@ -3028,106 +3469,108 @@ body.dark-theme .spotlight-logo[src*="json"] {
     font-size: 1.1rem !important;
   }
 
-  /* Mobile Overrides for Tabbed About Component */
-  .about-tabbed-section {
+  /* Mobile Overrides for Modern About Component */
+  .about-modern-section {
     padding: 2.5rem 1.25rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
   }
 
-  .about-tabbed-container {
+  .about-modern-container {
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  .about-tab-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 0.5rem 0.75rem !important;
-    margin-bottom: 2rem !important;
-    padding-bottom: 0.85rem !important;
+  .about-pill-track {
     width: 100% !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    margin-bottom: 2rem !important;
   }
 
-  .about-tab-btn {
+  .about-pill-btn {
     font-size: 11px !important;
-    letter-spacing: 0.08em !important;
-    padding: 0.5rem 0.75rem !important;
+    padding: 6px 12px !important;
+    gap: 0.4rem !important;
   }
 
-  .about-tab-btn.active::after {
-    bottom: -0.85rem !important;
+  .about-pill-btn .pill-label {
+    font-size: 11.5px !important;
   }
 
-  /* CRITICAL FIX FOR WHAT I BUILD TAB ON MOBILE */
-  .about-build-split {
+  .about-dossier-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.5rem !important;
+    gap: 2rem !important;
     width: 100% !important;
-    box-sizing: border-box !important;
   }
 
-  .about-build-image-col,
-  .about-build-text-col {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+  .about-dossier-heading {
+    font-size: 1.65rem !important;
+    line-height: 1.3 !important;
   }
 
-  .about-build-frame {
+  .about-dossier-specs {
     width: 100% !important;
-    height: 200px !important;
-    max-width: 100% !important;
   }
 
-  .about-tab-heading {
-    font-size: 1.6rem !important;
-    line-height: 1.35 !important;
+  .spec-card {
+    padding: 1.1rem 1.2rem !important;
+  }
+
+  .about-craft-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    width: 100% !important;
+  }
+
+  .craft-browser-window {
+    width: 100% !important;
+  }
+
+  .craft-window-body {
+    height: 190px !important;
+  }
+
+  .craft-metrics-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .craft-pillar-card {
+    padding: 1rem !important;
+    gap: 0.85rem !important;
+  }
+
+  .about-philosophy-layout {
+    gap: 2rem !important;
+  }
+
+  .philo-monument-card {
+    padding: 2rem 1.25rem !important;
+  }
+
+  .philo-silhouette-wrap {
+    width: 110px !important;
+    height: 110px !important;
     margin-bottom: 1.25rem !important;
   }
 
-  .tab-pane-label {
-    font-size: 11px !important;
-    margin-bottom: 1rem !important;
-  }
-
-  .bento-text {
-    font-size: 15px !important;
-    line-height: 1.7 !important;
-  }
-
-  .bento-text-sm {
-    font-size: 13.5px !important;
-    line-height: 1.65 !important;
-  }
-
-  .about-bio-single-col {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .about-philosophy-centered {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .about-philo-image-container {
-    width: 130px !important;
-    height: 130px !important;
-    margin-bottom: 1.25rem !important;
-  }
-
-  .about-philo-quote {
+  .philo-lead-quote {
     font-size: 1.35rem !important;
-    line-height: 1.45 !important;
-    padding: 0 !important;
+    line-height: 1.4 !important;
   }
 
-  .about-philo-author {
-    font-size: 11.5px !important;
+  .philo-glyph {
+    font-size: 3rem !important;
+    margin-bottom: -0.5rem !important;
+  }
+
+  .philo-axioms-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
   }
 
   .tl-article {
