@@ -101,7 +101,7 @@ const ProjectsCircular = ({ projectsData, onOpenModal }) => {
         }
       });
 
-      // Render glowing green location nodes
+      // Render glowing orange location nodes
       greenNodes.forEach(({ lat, lon }) => {
         const currentLon = lon + globeAngle;
         const x = radius * Math.cos(lat) * Math.sin(currentLon);
@@ -109,9 +109,9 @@ const ProjectsCircular = ({ projectsData, onOpenModal }) => {
         const z = radius * Math.cos(lat) * Math.cos(currentLon);
 
         if (z > 0) {
-          ctx.shadowColor = '#00ff44';
+          ctx.shadowColor = '#ff5722';
           ctx.shadowBlur = 12;
-          ctx.fillStyle = '#00ff44';
+          ctx.fillStyle = '#ff5722';
           ctx.beginPath();
           ctx.arc(centerX + x, centerY + y, 5, 0, Math.PI * 2);
           ctx.fill();
