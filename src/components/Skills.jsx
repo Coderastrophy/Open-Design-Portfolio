@@ -1,74 +1,121 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
+
+const STACK_ITEMS = [
+  // FRONTEND
+  { id: 'react', label: 'React.js 18', emoji: '⚛️', category: 'FRONTEND', role: 'Component Architecture & Hooks', spec: 'Virtual DOM, Custom Hooks, State Machines' },
+  { id: 'js', label: 'JavaScript (ES6+)', emoji: '🟨', category: 'FRONTEND', role: 'Modern Client Logic & DOM', spec: 'Async/Await, Closures, Event Loop' },
+  { id: 'html', label: 'HTML5 & Semantics', emoji: '🌐', category: 'FRONTEND', role: 'Accessible & Semantic Web', spec: 'WAI-ARIA, Semantic DOM, Document Flow' },
+  { id: 'css', label: 'CSS3 / Grid & Flex', emoji: '🎨', category: 'FRONTEND', role: 'Fluid Responsive Layouts', spec: 'Keyframe Animations, Variables, Media Queries' },
+  { id: 'bootstrap', label: 'Bootstrap 5', emoji: '🅱️', category: 'FRONTEND', role: 'Modular UI Scaffolding', spec: 'Utility Classes, Responsive Grid System' },
+  { id: 'vite', label: 'Vite & Bundlers', emoji: '⚡', category: 'FRONTEND', role: 'Build Tooling & Fast HMR', spec: 'ESBuild, Asset Optimization, Tree Shaking' },
+
+  // BACKEND
+  { id: 'node', label: 'Node.js Engine', emoji: '🟩', category: 'BACKEND', role: 'Asynchronous Event-Driven Runtime', spec: 'Non-blocking I/O, V8 Engine, Streams' },
+  { id: 'express', label: 'Express.js', emoji: '🚂', category: 'BACKEND', role: 'RESTful API Routing Engine', spec: 'Middleware Pipeline, Controllers, CORS' },
+  { id: 'jwt', label: 'JWT Auth', emoji: '🔐', category: 'BACKEND', role: 'Stateless Token Security', spec: 'Bearer Auth, Role-Based Access, Crypto Sign' },
+  { id: 'python', label: 'Python Systems', emoji: '🐍', category: 'BACKEND', role: 'Scripting & Core Computing', spec: 'Algorithms, Data Structures, Automation' },
+  { id: 'java', label: 'Java OOP', emoji: '☕', category: 'BACKEND', role: 'Software Engineering & OOP', spec: 'Multithreading, Polymorphism, Enterprise Patterns' },
+  { id: 'rest', label: 'REST Architecture', emoji: '📡', category: 'BACKEND', role: 'Resource Controller Specs', spec: 'Stateless Endpoints, HTTP Status Specs' },
+
+  // DATABASE
+  { id: 'postgres', label: 'PostgreSQL', emoji: '🐘', category: 'DATABASE', role: 'Relational RDBMS & ACID', spec: 'Table Constraints, Foreign Keys, Indexing' },
+  { id: 'prisma', label: 'Prisma ORM', emoji: '💎', category: 'DATABASE', role: 'Type-Safe Data Modeling', spec: 'Declarative Migrations, Relations, Type Safety' },
+  { id: 'mongo', label: 'MongoDB', emoji: '🍃', category: 'DATABASE', role: 'Document Database & BSON', spec: 'Flexible Schemas, Aggregations, Document Trees' },
+  { id: 'mongoose', label: 'Mongoose', emoji: '🛡️', category: 'DATABASE', role: 'Schema Validation & Models', spec: 'Model Middleware, Hooks, Schema Casting' },
+  { id: 'sql', label: 'SQL Optimization', emoji: '📊', category: 'DATABASE', role: 'Relational Query Tuning', spec: 'Execution Plans, Composite Indexes, Normalization' },
+
+  // WORKFLOW
+  { id: 'vscode', label: 'VS Code Suite', emoji: '💻', category: 'WORKFLOW', role: 'Customized Development IDE', spec: 'Extensions, Debugger Config, Snippets' },
+  { id: 'linux', label: 'Zorin OS / Linux', emoji: '🐧', category: 'WORKFLOW', role: 'Native UNIX Environment', spec: 'Bash Scripting, Permissions, Kernel Tools' },
+  { id: 'git', label: 'Git & GitHub', emoji: '🐙', category: 'WORKFLOW', role: 'Commit-Driven Versioning', spec: 'Branching Strategy, PR Workflows, Rebasing' },
+  { id: 'actions', label: 'GitHub Actions', emoji: '⚙️', category: 'WORKFLOW', role: 'CI/CD Automated Deployment', spec: 'Workflow Pipelines, Automated Builds & Tests' },
+  { id: 'ai', label: 'Claude & Codex', emoji: '🤖', category: 'WORKFLOW', role: 'AI-Augmented Engineering', spec: 'Rapid Architecture Prototyping, Code Refactoring' },
+  { id: 'vercel', label: 'Vercel Platform', emoji: '▲', category: 'WORKFLOW', role: 'Edge Platform Deployments', spec: 'Serverless Functions, Global CDN, Preview Branches' },
+];
+
+const CATEGORIES = ['ALL', 'FRONTEND', 'BACKEND', 'DATABASE', 'WORKFLOW'];
 
 const Skills = () => {
-  const [hoveredItem, setHoveredItem] = useState(null);
+  // Pre-select flagship items by default
+  const [selected, setSelected] = useState(() => [
+    'react',
+    'js',
+    'vite',
+    'node',
+    'express',
+    'jwt',
+    'postgres',
+    'prisma',
+    'linux',
+    'git',
+    'actions',
+  ]);
+  const [activeCategory, setActiveCategory] = useState('ALL');
+  const [particles, setParticles] = useState([]);
+  const [activeHover, setActiveHover] = useState(null);
+  const containerRef = useRef(null);
 
-  const stackColumns = [
-    {
-      id: 'frontend',
-      number: '01',
-      tag: '[ 01 / CLIENT & UI ]',
-      title: 'Frontend Interfaces',
-      summary: 'Declarative component architecture & responsive design systems.',
-      techs: [
-        { name: 'React.js', spec: 'v18+ Hooks & State Machine' },
-        { name: 'JavaScript', spec: 'Modern ES6+ / Closures / Async' },
-        { name: 'HTML5', spec: 'Semantic & Accessible Web' },
-        { name: 'CSS3 / Grid', spec: 'Fluid Responsive Layouts' },
-        { name: 'Bootstrap 5', spec: 'Modular UI Scaffolding' },
-        { name: 'Vite', spec: 'HMR & Build Tooling' },
-      ],
-      capabilities: ['Virtual DOM', 'State Machines', 'Responsive UI', 'Component Lifecycle'],
-    },
-    {
-      id: 'backend',
-      number: '02',
-      tag: '[ 02 / SERVER & API ]',
-      title: 'Backend Services',
-      summary: 'High-concurrency servers, REST routing & stateless auth pipelines.',
-      techs: [
-        { name: 'Node.js', spec: 'Async Event-Driven Engine' },
-        { name: 'Express.js', spec: 'RESTful API Routing Engine' },
-        { name: 'JWT Auth', spec: 'Stateless Bearer Security' },
-        { name: 'Python', spec: 'Scripting & Core Computing' },
-        { name: 'Java', spec: 'OOP & Software Engineering' },
-        { name: 'REST APIs', spec: 'Resource Controllers & CORS' },
-      ],
-      capabilities: ['Middleware Pipelines', 'Stateless Auth', 'Async I/O', 'CORS Security'],
-    },
-    {
-      id: 'database',
-      number: '03',
-      tag: '[ 03 / DATA & STORAGE ]',
-      title: 'Databases & Schemas',
-      summary: 'Relational ACID integrity, document collections & type-safe ORMs.',
-      techs: [
-        { name: 'PostgreSQL', spec: 'Relational RDBMS & ACID' },
-        { name: 'Prisma ORM', spec: 'Type-Safe Data Modeling' },
-        { name: 'MongoDB', spec: 'Document Data Store' },
-        { name: 'Mongoose', spec: 'Schema Validation Models' },
-        { name: 'SQL Indexing', spec: 'Relational Query Optimization' },
-        { name: 'Data Modeling', spec: 'Schema Normalization' },
-      ],
-      capabilities: ['ACID Guarantees', 'Schema Migrations', 'Document Trees', 'Index Tuning'],
-    },
-    {
-      id: 'workflow',
-      number: '04',
-      tag: '[ 04 / TOOLING & UNIX ]',
-      title: 'Workflow & Systems',
-      summary: 'UNIX environment mastery, automated CI/CD & AI-assisted coding.',
-      techs: [
-        { name: 'VS Code', spec: 'Customized IDE Suite' },
-        { name: 'Zorin OS', spec: 'Native Linux Shell & UNIX' },
-        { name: 'Git & GitHub', spec: 'Commit-Driven Development' },
-        { name: 'GitHub Actions', spec: 'CI/CD Automated Deploy' },
-        { name: 'Claude & Codex', spec: 'AI-Augmented Engineering' },
-        { name: 'Vercel', spec: 'Edge Platform Deployments' },
-      ],
-      capabilities: ['Linux Shell', 'CI/CD Pipelines', 'Git Flow', 'Edge Deployment'],
-    },
-  ];
+  const spawnParticles = (emoji, e) => {
+    const rect = e?.currentTarget?.getBoundingClientRect();
+    const containerRect = containerRef.current?.getBoundingClientRect();
+    
+    // Relative origin coordinates if available
+    const originX = rect && containerRect ? (rect.left + rect.width / 2) - containerRect.left : null;
+    const originY = rect && containerRect ? (rect.top + rect.height / 2) - containerRect.top : null;
+
+    const newParticles = Array.from({ length: 4 }).map(() => ({
+      id: Math.random().toString(36).substring(2, 9),
+      emoji,
+      xOffset: (Math.random() - 0.5) * 160,
+      yOffset: -120 - Math.random() * 80,
+      rotate: (Math.random() - 0.5) * 60,
+      scale: 1.6 + Math.random() * 0.8,
+      originX: originX ?? undefined,
+      originY: originY ?? undefined,
+    }));
+
+    setParticles((prev) => [...prev, ...newParticles]);
+
+    setTimeout(() => {
+      setParticles((prev) => prev.filter((p) => !newParticles.some((np) => np.id === p.id)));
+    }, 1400);
+  };
+
+  const toggleChip = (id, emoji, e) => {
+    setSelected((prev) => {
+      const exists = prev.includes(id);
+      const updated = exists ? prev.filter((i) => i !== id) : [...prev, id];
+      if (!exists) spawnParticles(emoji, e);
+      return updated;
+    });
+  };
+
+  const handleSelectAll = () => {
+    setSelected(STACK_ITEMS.map((s) => s.id));
+    spawnParticles('⚡');
+  };
+
+  const handleClearAll = () => {
+    setSelected([]);
+  };
+
+  const filteredItems = useMemo(() => {
+    if (activeCategory === 'ALL') return STACK_ITEMS;
+    return STACK_ITEMS.filter((item) => item.category === activeCategory);
+  }, [activeCategory]);
+
+  // Distribute items into 3 staggered rows
+  const rows = useMemo(() => {
+    const result = [[], [], []];
+    filteredItems.forEach((item, index) => {
+      result[index % 3].push(item);
+    });
+    return result;
+  }, [filteredItems]);
+
+  const focusedItem = activeHover
+    ? STACK_ITEMS.find((s) => s.id === activeHover)
+    : STACK_ITEMS.find((s) => s.id === selected[selected.length - 1]) || STACK_ITEMS[0];
 
   return (
     <>
@@ -78,59 +125,117 @@ const Skills = () => {
         <span className="section-count">002 / 005</span>
       </div>
 
-      <section className="od-stacks-ledger-section fade-in visible">
-        <div className="od-stacks-grid">
-          {stackColumns.map((col) => (
-            <div className="od-stack-column" key={col.id}>
-              {/* Column Header */}
-              <div className="od-stack-col-head">
-                <span className="od-stack-num">{col.number}</span>
-                <span className="od-stack-domain-tag">{col.tag}</span>
-                <h3 className="od-stack-col-title">{col.title}</h3>
-                <p className="od-stack-col-desc">{col.summary}</p>
-              </div>
+      <section className="watermelon-chips-section fade-in visible" ref={containerRef}>
+        <div className="watermelon-chips-container">
+          
+          {/* Header & Category Toolbar */}
+          <div className="chips-top-toolbar">
+            <div className="chips-heading-group">
+              <span className="chips-eyebrow">INTERACTIVE CHOICE CHIPS · MULTI-SELECT MATRIX</span>
+              <h3 className="chips-main-title">Select & Explore Stack Technologies</h3>
+            </div>
 
-              {/* Stack Item Rows */}
-              <div className="od-stack-list">
-                {col.techs.map((t, idx) => (
-                  <div
-                    key={idx}
-                    className="od-stack-row"
-                    onMouseEnter={() => setHoveredItem(`${col.id}-${idx}`)}
-                    onMouseLeave={() => setHoveredItem(null)}
-                  >
-                    <div className="od-stack-row-main">
-                      <span className="od-stack-tech-name">{t.name}</span>
-                      <span className="od-stack-tech-spec">{t.spec}</span>
-                    </div>
-                    <span className="od-stack-arrow">→</span>
-                  </div>
-                ))}
-              </div>
+            <div className="chips-category-bar" role="tablist">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  className={`chips-category-btn ${activeCategory === cat ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat)}
+                  role="tab"
+                  aria-selected={activeCategory === cat}
+                >
+                  {cat === 'ALL' ? `[ ALL (${STACK_ITEMS.length}) ]` : `[ ${cat} ]`}
+                </button>
+              ))}
+            </div>
+          </div>
 
-              {/* Column Footer: Capabilities */}
-              <div className="od-stack-col-foot">
-                <span className="od-stack-foot-label">CAPABILITIES</span>
-                <div className="od-stack-pill-wrap">
-                  {col.capabilities.map((cap, cIdx) => (
-                    <span className="od-stack-pill" key={cIdx}>
-                      {cap}
-                    </span>
-                  ))}
+          {/* Staggered Choice Chips Rows */}
+          <div className="chips-scroll-track">
+            <div className="chips-rows-wrapper">
+              {rows.map((row, rowIndex) => (
+                <div key={rowIndex} className={`chips-row row-stagger-${rowIndex}`}>
+                  {row.map((item) => {
+                    const isSelected = selected.includes(item.id);
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={(e) => toggleChip(item.id, item.emoji, e)}
+                        onMouseEnter={() => setActiveHover(item.id)}
+                        onMouseLeave={() => setActiveHover(null)}
+                        className={`choice-chip-btn ${isSelected ? 'selected' : ''}`}
+                        title={`${item.label} (${item.category}) - Click to toggle`}
+                      >
+                        <span className="chip-emoji">{item.emoji}</span>
+                        <span className="chip-label">{item.label}</span>
+                        {isSelected && <span className="chip-check-mark">✓</span>}
+                      </button>
+                    );
+                  })}
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Floating Emoji Particles Layer */}
+          <div className="chips-particles-layer" aria-hidden="true">
+            {particles.map((p) => (
+              <div
+                key={p.id}
+                className="floating-emoji-particle"
+                style={{
+                  '--x-offset': `${p.xOffset}px`,
+                  '--y-offset': `${p.yOffset}px`,
+                  '--rotate': `${p.rotate}deg`,
+                  '--scale': p.scale,
+                  ...(p.originX !== undefined && { left: `${p.originX}px` }),
+                  ...(p.originY !== undefined && { top: `${p.originY}px` }),
+                }}
+              >
+                {p.emoji}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Floating Capsule & Spec Spotlight Drawer */}
+          <div className="chips-bottom-panel">
+            <div className="chips-capsule-bar">
+              <div className="chips-selected-pill">
+                <span className="selected-count-dot"></span>
+                <span className="selected-count-text">
+                  <strong>{selected.length}</strong> / {STACK_ITEMS.length} Technologies Active
+                </span>
+              </div>
+
+              <div className="chips-action-buttons">
+                <button className="chips-action-btn" onClick={handleSelectAll}>
+                  Select All
+                </button>
+                <button className="chips-action-btn" onClick={handleClearAll}>
+                  Clear
+                </button>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Bottom Ledger Summary Bar */}
-        <div className="od-stacks-footbar">
-          <span className="od-footbar-item">
-            <span className="od-footbar-dot"></span>
-            SYS-SPEC // FULL-STACK ARCHITECTURAL INTEGRITY
-          </span>
-          <span className="od-footbar-item">24+ PRODUCTION RUNTIMES & PACKAGES</span>
-          <span className="od-footbar-item">COMMIT-DRIVEN · LINUX NATIVE · OPEN SOURCE</span>
+            {/* Live Spec Spotlight */}
+            {focusedItem && (
+              <div className="chips-spec-spotlight">
+                <div className="spotlight-header">
+                  <div className="spotlight-title-group">
+                    <span className="spotlight-emoji">{focusedItem.emoji}</span>
+                    <span className="spotlight-name">{focusedItem.label}</span>
+                    <span className="spotlight-badge">{focusedItem.category}</span>
+                  </div>
+                  <span className="spotlight-role">{focusedItem.role}</span>
+                </div>
+                <div className="spotlight-spec-body">
+                  <span className="spotlight-spec-label">ARCHITECTURE //</span>
+                  <span className="spotlight-spec-text">{focusedItem.spec}</span>
+                </div>
+              </div>
+            )}
+          </div>
+
         </div>
       </section>
     </>
