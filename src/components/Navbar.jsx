@@ -120,8 +120,18 @@ const Navbar = ({ onNavClick, onOpenCmd }) => {
               </a>
             </li>
             <li>
+              <a href="#systems" onClick={(e) => handleLinkClick(e, 'systems')}>
+                Systems
+              </a>
+            </li>
+            <li>
               <a href="#writing" onClick={(e) => handleLinkClick(e, 'writing')}>
                 Blog
+              </a>
+            </li>
+            <li>
+              <a href="#thoughts" onClick={(e) => handleLinkClick(e, 'thoughts')}>
+                Thoughts
               </a>
             </li>
             <li>
